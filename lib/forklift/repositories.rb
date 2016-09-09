@@ -54,7 +54,7 @@ module Forklift
       system("yum -y  --disablerepo=\"*\" --enablerepo=rhel-#{os_version}-server-rpms install yum-utils wget")
       system('yum repolist') # TODO: necessary?
       system('yum-config-manager --disable "*" 1>/dev/null')
-      system('yum-config-manager --enable epel')
+      system('yum-config-manager --enable epel --enable "beaker*"')
       system(
         "subscription-manager repos --enable rhel-#{os_version}-server-rpms " \
         "--enable rhel-#{os_version}-server-extras-rpms --enable rhel-#{os_version}-server-optional-rpms"
